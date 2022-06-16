@@ -1,6 +1,7 @@
 # Test Cases
 
-Website: [demoblaze.com](https://www.demoblaze.com)
+- Video Demo: [youtube.com](https://www.youtube.com/watch?v=jVasRJYOZ2Q)
+- Website: [demoblaze.com](https://www.demoblaze.com)
 
 ## Sign Up Flow
 
