@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 def get_alert_text(driver):
+    """Helper function for getting text from alerts."""
     # Wait for the alert
     WebDriverWait(driver, 10).until(EC.alert_is_present())
 
@@ -13,12 +14,19 @@ def get_alert_text(driver):
 
     return alert.text
 
-
 def setup_page(url):
+    """Helper function for setting up the page to be tested."""
+
+    # Constant for setting the path to the chrome driver executable.
+    PATH = "C:/SeleniumDrivers/chromedriver.exe"
+    # PATH = None
+    if PATH == None:
+        raise Exception("PATH variable is not set -> line 21 login_signup.py")
+
     # Set up Chrome Driver
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
-    driver = webdriver.Chrome(options=options, service=Service("C:/SeleniumDrivers/chromedriver.exe"))
+    driver = webdriver.Chrome(options=options, service=Service(PATH))
 
     # Go to page for testing
     driver.get(url)
@@ -28,8 +36,11 @@ def setup_page(url):
 
     return driver
 
-
 def login(url, username, password, success=True):
+    """
+    Clicks on the login button and passes in username and password.
+    'success' parameter indicates whether we are expecting a successfail login.    
+    """
     # Setup page
     driver = setup_page(url)        
 
@@ -55,6 +66,7 @@ def login(url, username, password, success=True):
     return get_alert_text(driver)
 
 def signup(url, username, password):
+    """Clicks on sign up button and attempts to sign up a new user."""
     # Setup page
     driver = setup_page(url)
 
