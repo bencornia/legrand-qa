@@ -18,8 +18,7 @@ def setup_page(url):
     """Helper function for setting up the page to be tested."""
 
     # Constant for setting the path to the chrome driver executable.
-    PATH = "C:/SeleniumDrivers/chromedriver.exe"
-    # PATH = None
+    PATH = None
     if PATH == None:
         raise Exception("PATH variable is not set -> line 21 login_signup.py")
 
